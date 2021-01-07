@@ -18,9 +18,9 @@ RUN     build/setup.sh && rm -rf /build
 
 COPY    root/ /
 
-RUN     chmod -v +x /etc/my_init.d/*.sh /etc/service/*/run \
-        rm /etc/nginx/conf.d/default.conf \
-        mv /virtual/cp.dynamic.com/htdocs/admin /virtual/cp.dynamic.com/htdocs/pmadci
+RUN     chmod -v +x /etc/my_init.d/*.sh /etc/service/*/run
+RUN     rm /etc/nginx/conf.d/default.conf
+RUN     mv /virtual/cp.dynamic.com/htdocs/admin /virtual/cp.dynamic.com/htdocs/pmadci
 
 EXPOSE  2222
 
