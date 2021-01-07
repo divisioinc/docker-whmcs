@@ -27,6 +27,14 @@ ln -sf /dev/stdout /var/log/nginx/access.log
 ln -sf /dev/stderr /var/log/nginx/error.log
 rm /etc/nginx/conf.d/*
 
+# Custom AB Commands
+mkdir -p /virtual/cp.dynamic.com/htdocs/non-public
+mkdir -p /virtual/cp.dynamic.com/htdocs/whmcs
+mkdir -p /virtual/cp.dynamic.com/htdocs/logs
+touch /virtual/cp.dynamic.com/htdocs/logs/error.log 
+touch /virtual/cp.dynamic.com/htdocs/logs/access.log
+# End AB Commands
+
 # Change max execution time to 180 seconds
 sed -ri 's/(max_execution_time =) ([2-9]+)/\1 180/' /etc/php/$PHP_VERSION/fpm/php.ini
 
