@@ -2,6 +2,8 @@ FROM    ajoergensen/baseimage-ubuntu
 
 LABEL	maintainer="Rizal Fauzie Ridwan <rizal@fauzie.my.id>"
 
+ENV     APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1
+
 ENV     PHP_VERSION=7.3 \
         VIRTUAL_HOST=$DOCKER_HOST \
         HOME=/virtual/cp.dynamic.com/htdocs/ \
@@ -25,5 +27,5 @@ EXPOSE  2222
 VOLUME  /virtual/cp.dynamic.com/htdocs/
 WORKDIR /virtual/cp.dynamic.com/htdocs/
 
-RUN     rm /etc/nginx/conf.d/default.conf
-RUN     mv /virtual/cp.dynamic.com/htdocs/admin /virtual/cp.dynamic.com/htdocs/pmadci
+# RUN     rm /etc/nginx/conf.d/default.conf
+# RUN     mv /virtual/cp.dynamic.com/htdocs/admin /virtual/cp.dynamic.com/htdocs/pmadci

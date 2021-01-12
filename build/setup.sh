@@ -1,12 +1,15 @@
 #!/bin/bash
 set -eo pipefail
 
+add-apt-repository 'deb http://security.ubuntu.com/ubuntu xenial-security main'
+
+sudo apt list --installed
 # Enable PHP
 add-apt-repository -y ppa:ondrej/php
 
 # Enable nginx repo
 wget -q http://nginx.org/packages/keys/nginx_signing.key
-cat nginx_signing.key | sudo apt-key add -
+cat nginx_signing.key | sudo apt-key add - 
 add-apt-repository 'deb http://nginx.org/packages/ubuntu/ xenial nginx'
 
 # Update installed packages
@@ -34,6 +37,8 @@ mkdir -p /virtual/cp.dynamic.com/htdocs/logs
 touch /virtual/cp.dynamic.com/htdocs/logs/error.log 
 touch /virtual/cp.dynamic.com/htdocs/logs/access.log
 # End AB Commands
+
+ls -lsa1
 
 # Change max execution time to 180 seconds
 sed -ri 's/(max_execution_time =) ([2-9]+)/\1 180/' /etc/php/$PHP_VERSION/fpm/php.ini
